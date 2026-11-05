@@ -15,8 +15,6 @@ const sidebarForGuide: DefaultTheme.SidebarItem[] = [
       { text: 'Introduction', link: '/guide/introduction.md' },
       { text: 'Getting Started', link: '/guide/getting-started.md' },
       { text: 'Notable Features', link: '/guide/notable-features.md' },
-      { text: 'Build Report', link: '/guide/build-report.md' },
-      { text: 'Perf Kit', link: '/guide/perf-kit.md' },
       {
         text: 'Troubleshooting',
         link: '/guide/troubleshooting.md',
@@ -171,6 +169,14 @@ const sidebarForReference: DefaultTheme.SidebarItem[] = [
     collapsed: false,
   },
   ...typedocSidebar,
+  {
+    text: 'Tools',
+    items: [
+      { text: 'Build Report', link: '/tools/build-report.md' },
+      { text: 'Perf Kit', link: '/tools/perf-kit.md' },
+    ],
+    collapsed: false,
+  },
 ];
 
 const sidebarForDevGuide: DefaultTheme.SidebarItem[] = [
@@ -301,7 +307,7 @@ const config = defineConfig({
         activeMatch: '/(guide|in-depth|glossary)',
         link: '/guide/getting-started.md',
       },
-      { text: 'Reference', activeMatch: '/reference', link: '/reference' },
+      { text: 'Reference', activeMatch: '/(reference|tools)', link: '/reference' },
       {
         text: 'Plugins',
         activeMatch: '/builtin-plugins',
@@ -340,8 +346,9 @@ const config = defineConfig({
       '/guide/': sidebarForGuide,
       '/in-depth/': sidebarForGuide,
       '/glossary/': sidebarForGuide,
-      // --- Reference (options + typedoc dictionary) ---
+      // --- Reference (options + typedoc dictionary + tools) ---
       '/reference/': sidebarForReference,
+      '/tools/': sidebarForReference,
       // --- Plugins ---
       '/builtin-plugins/': sidebarForPlugins,
       // --- API ---
